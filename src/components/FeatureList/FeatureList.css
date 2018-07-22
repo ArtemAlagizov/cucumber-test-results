@@ -3,7 +3,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     overflow: auto;
-    height: calc(100vh - 8.5em);
-    padding-left: 1em;
+    height: calc(100vh - 7.3em);
+    padding-left: 0.8em;
     margin-top: 0.5em;
+    font-size: 1.2em;
+    font-family: initial;
 }

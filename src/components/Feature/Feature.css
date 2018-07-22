@@ -1,8 +1,8 @@
 .feature {
     display: flex;
-    flex: 0 0 22em;
+    flex: 0 0 19em;
     width: 10em;
-    height: 8em;
+    height: 7em;
     margin: 0.4em;
     overflow: hidden;
     box-shadow: -3px 3px 2px 0 #ccc;
@@ -17,12 +17,12 @@
 
 .passed {
     flex: 1;
-    background: rgba(0, 204, 0, 1);
+    background: #00CC00;
 }
 
 .failed {
     flex: 1;
-    background: rgba(204, 0, 0, 1);
+    background: #CC0000;
 }
 
 .feature-upper {
@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column;
     flex: 2;
-    margin: 0.5em;
+    margin: 0.5em 0.5em 1em;
 }
 
 .dashboard-name {
@@ -43,6 +43,7 @@
     padding: 1em;
     word-break: break-all;
     font-weight: bold;
+    margin-top: -7px;
 }
 
 .number-of-scenarios {

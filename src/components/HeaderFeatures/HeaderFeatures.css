@@ -1,6 +1,70 @@
 .header-features {
-    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    background-color: #020450;
     height: 5em;
     padding: 20px;
     color: white;
+    overflow: hidden;
+}
+
+.header-title {
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.header-title-container {
+    font-size: 2em;
+    margin-top: -0.5em;
+    font-family: initial;
+}
+
+.cucumber-logo-container {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cucumber-logo {
+    max-height: 100%;
+    transform: rotate(347deg);
+    position: relative;
+    top: 5px;
+}
+
+.header-statistics {
+    display: flex;
+}
+
+.header-statistics-container {
+    display: flex;
+}
+
+.test-status {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
+}
+
+.CircularProgressbar {
+    width: 100%;
+    max-width: 55%;
+    align-self: flex-end;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: #00CC00;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    fill: #00CC00;
+}
+
+.duration-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.5em;
+    font-family: initial;
+    margin-right: 1em;
 }
