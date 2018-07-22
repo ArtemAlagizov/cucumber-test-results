@@ -68,3 +68,8 @@
     font-family: initial;
     margin-right: 1em;
 }
+
+.duration-time {
+    align-self: center;
+    overflow: hidden;
+}

@@ -23,7 +23,7 @@ class HeaderFeatures extends Component {
                         <div>LANA</div>
                     </div>
                     <div className="cucumber-logo-container">
-                        <img src={cucumberLogo} className="cucumber-logo"/>
+                        <img src={cucumberLogo} className="cucumber-logo" alt={cucumberLogo}/>
                     </div>
                 </div>
                 <div className="header-statistics">
@@ -33,7 +33,7 @@ class HeaderFeatures extends Component {
                         </div>
                         <div className="duration-container">
                             <div>Overall time</div>
-                            <div>{overallDuration}</div>
+                            <div className="duration-time">{overallDuration}</div>
                         </div>
                     </div>
                 </div>
