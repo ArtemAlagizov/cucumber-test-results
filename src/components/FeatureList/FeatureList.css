@@ -1,0 +1,9 @@
+.feature-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: calc(100vh - 8.5em);
+    padding-left: 1em;
+    margin-top: 0.5em;
+}

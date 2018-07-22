@@ -1,0 +1,62 @@
+.feature {
+    display: flex;
+    flex: 0 0 22em;
+    width: 10em;
+    height: 8em;
+    margin: 0.4em;
+    overflow: hidden;
+    box-shadow: -3px 3px 2px 0 #ccc;
+    border: 1px solid #bdbdbd;
+}
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    flex: 30;
+}
+
+.passed {
+    flex: 1;
+    background: rgba(0, 204, 0, 1);
+}
+
+.failed {
+    flex: 1;
+    background: rgba(204, 0, 0, 1);
+}
+
+.feature-upper {
+    display: flex;
+    flex: 3;
+    justify-content: flex-start;
+}
+
+.feature-downer {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    margin: 0.5em;
+}
+
+.dashboard-name {
+    flex: 1;
+    padding: 1em;
+    word-break: break-all;
+    font-weight: bold;
+}
+
+.number-of-scenarios {
+    display: flex;
+    flex: 1;
+    padding: 0.5em;
+}
+
+.duration {
+    display: flex;
+    flex: 1;
+    padding: 0.5em;
+}
+
+.label {
+    margin-right: 0.2em;
+}
