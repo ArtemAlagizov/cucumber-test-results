@@ -2,7 +2,7 @@
 
 * To install packages go with
   ```
-  nmp i
+  npm i
   ```
 * To run go with
   ```
