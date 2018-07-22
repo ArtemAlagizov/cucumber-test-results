@@ -52,8 +52,13 @@
     align-self: flex-end;
 }
 
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: #CC0000;
+}
+
 .CircularProgressbar .CircularProgressbar-path {
     stroke: #00CC00;
+    stroke-linecap: square;
 }
 
 .CircularProgressbar .CircularProgressbar-text {
