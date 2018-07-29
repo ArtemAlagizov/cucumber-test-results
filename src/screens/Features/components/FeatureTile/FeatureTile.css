@@ -5,8 +5,8 @@
     height: 7em;
     margin: 0.4em;
     overflow: hidden;
-    box-shadow: -0.188em 0.188em 0.125em 0 #ccc;
-    border: 0.063em solid #bdbdbd;
+    box-shadow: -0.1875rem 0.1875rem 0.125rem 0 #ccc;
+    border: 0.0625rem solid #bdbdbd;
     cursor: pointer;
 }
 
