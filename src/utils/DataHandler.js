@@ -1,5 +1,11 @@
 import {Component} from 'react';
-import {juxt, clone} from 'ramda';
+import {juxt, clone, filter} from 'ramda';
+
+const filterKeyMap = {
+    passed: feature => feature.testsPassed === true,
+    failed: feature => feature.testsPassed === false,
+    all: feature => feature
+};
 
 class DataHandler extends Component {
     static getHeaderData(features) {
@@ -48,6 +54,10 @@ class DataHandler extends Component {
         juxt(modifications)(featuresClone);
 
         return featuresClone;
+    }
+
+    static filterData(features, filterKey) {
+        return filter(filterKeyMap[filterKey], features);
     }
 }
 

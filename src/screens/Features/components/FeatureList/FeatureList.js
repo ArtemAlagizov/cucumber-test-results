@@ -9,7 +9,10 @@ class FeatureList extends Component {
             <Feature key={feature.id} feature={feature}/>);
 
         return (
-            <div className="feature-list">{features}</div>
+            <div className="feature-list-container">
+                <div className="feature-list">{features}</div>
+                <div/>
+            </div>
         )
     }
 }

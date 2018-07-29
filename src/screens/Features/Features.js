@@ -5,6 +5,7 @@ import ExampleData from '../../exampleData.json';
 import FeatureList from '../../screens/Features/components/FeatureList/FeatureList';
 import FeaturesHeader from '../../screens/Features/components/FeaturesHeader/FeaturesHeader';
 import DataHandler from '../../utils/DataHandler';
+import FilterPanel from "./components/FilterPanel/FilterPanel";
 
 class Features extends Component {
     constructor(props) {
@@ -12,10 +13,12 @@ class Features extends Component {
 
         this.state = {
             headerData: {},
-            features: []
+            filteredFeatures: [],
+            originalFeatures: []
         };
 
         this.loadData = this.loadData.bind(this);
+        this.filterData = this.filterData.bind(this);
     }
 
     componentWillMount() {
@@ -26,7 +29,8 @@ class Features extends Component {
         return (
             <div className="features">
                 <FeaturesHeader headerData={this.state.headerData}/>
-                <FeatureList features={this.state.features}/>
+                <FilterPanel filterData={this.filterData}/>
+                <FeatureList features={this.state.filteredFeatures}/>
             </div>
         );
     }
@@ -37,7 +41,19 @@ class Features extends Component {
 
         this.setState({
             headerData: headerData,
-            features: features
+            filteredFeatures: features,
+            originalFeatures: features
+        });
+    }
+
+    filterData(filterKey) {
+        const filteredFeatures = DataHandler.filterData(this.state.originalFeatures, filterKey);
+        const filteredHeaderData = DataHandler.getHeaderData(filteredFeatures);
+
+        this.setState({
+            headerData: filteredHeaderData,
+            filteredFeatures: filteredFeatures,
+            originalFeatures: this.state.originalFeatures
         });
     }
 }
