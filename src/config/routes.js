@@ -11,8 +11,8 @@ class Routes extends Component {
             <Router>
                 <div>
                     <Switch>
-                        <Route exact path='/' component={App}/>
-                        <Route exact path='/feature/:id' component={Feature}/>
+                        <Route exact path="/" component={App}/>
+                        <Route exact path="/feature/:id" component={Feature}/>
                     </Switch>
                 </div>
             </Router>
