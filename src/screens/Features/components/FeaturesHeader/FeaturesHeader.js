@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import './HeaderFeatures.css';
-import TimeUtils from '../TimeUtils/TimeUtils';
-import cucumberLogo from '../../rickle.png';
+import './FeaturesHeader.css';
+import TimeUtils from '../../../../utils/TimeUtils';
+import cucumberLogo from '../../../../rickle.png';
 
-class HeaderFeatures extends Component {
+class FeaturesHeader extends Component {
     render() {
         const headerData = this.props.headerData;
         const overallDuration = TimeUtils.convertNanosecondsToTime(headerData.overallDuration);
@@ -16,18 +16,18 @@ class HeaderFeatures extends Component {
         const circularIndicatorText = `${numberOfPassedFeatures}/${featuresNumber}`;
 
         return (
-            <div className="header-features">
-                <div className="header-title">
-                    <div className="header-title-container">
+            <div className="features-header">
+                <div className="features-header-title">
+                    <div className="features-header-title-container">
                         <div>Cucumber</div>
                         <div>LANA</div>
                     </div>
-                    <div className="cucumber-logo-container">
+                    <div>
                         <img src={cucumberLogo} className="cucumber-logo" alt={cucumberLogo}/>
                     </div>
                 </div>
-                <div className="header-statistics">
-                    <div className="header-statistics-container">
+                <div className="features-header-statistics">
+                    <div className="features-header-statistics-container">
                         <div className="test-status">
                             <CircularProgressbar percentage={percentageOfPassed} text={circularIndicatorText}/>
                         </div>
@@ -42,4 +42,4 @@ class HeaderFeatures extends Component {
     }
 }
 
-export default HeaderFeatures;
+export default FeaturesHeader;

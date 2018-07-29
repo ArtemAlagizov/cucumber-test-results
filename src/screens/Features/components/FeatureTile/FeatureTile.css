@@ -1,15 +1,15 @@
-.feature {
+.feature-tile {
     display: flex;
     flex: 0 0 19em;
     width: 10em;
     height: 7em;
     margin: 0.4em;
     overflow: hidden;
-    box-shadow: -3px 3px 2px 0 #ccc;
-    border: 1px solid #bdbdbd;
+    box-shadow: -0.188em 0.188em 0.125em 0 #ccc;
+    border: 0.063em solid #bdbdbd;
 }
 
-.feature-content {
+.feature-tile-content {
     display: flex;
     flex-direction: column;
     flex: 30;
@@ -25,13 +25,13 @@
     background: #CC0000;
 }
 
-.feature-upper {
+.feature-tile-upper {
     display: flex;
     flex: 3;
     justify-content: flex-start;
 }
 
-.feature-downer {
+.feature-tile-downer {
     display: flex;
     flex-direction: column;
     flex: 2;
@@ -43,7 +43,7 @@
     padding: 1em;
     word-break: break-all;
     font-weight: bold;
-    margin-top: -7px;
+    margin-top: -0.438em;
 }
 
 .number-of-scenarios {

@@ -1,0 +1,26 @@
+.scenario {
+    display: flex;
+    flex: 1;
+    min-height: 4em;
+    max-height: 4em;
+    margin: 0.4em;
+    overflow: hidden;
+    box-shadow: -0.188em 0.188em 0.125em 0 #ccc;
+    border: 0.063em solid #bdbdbd;
+}
+
+.scenario-content {
+    display: flex;
+    flex-direction: column;
+    flex: 30;
+}
+
+.passed {
+    flex: 1;
+    background: #00CC00;
+}
+
+.failed {
+    flex: 1;
+    background: #CC0000;
+}
