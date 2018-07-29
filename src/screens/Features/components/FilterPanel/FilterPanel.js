@@ -1,26 +1,17 @@
 import React, {Component} from 'react';
 
 import './FilterPanel.css';
+import FilterButton from '../FilterButton/FilterButton';
 
 class FilterPanel extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleOnClick = this.handleOnClick.bind(this);
-    }
-
     render() {
         return (
             <div className="filter-panel">
-                <div className="filter-button show-passed" onClick={event => this.handleOnClick(event, 'passed')}/>
-                <div className="filter-button show-failed" onClick={event => this.handleOnClick(event, 'failed')}/>
-                <div className="filter-button show-all" onClick={event => this.handleOnClick(event, 'all')}/>
+                <FilterButton buttonId='passed' filterData={this.props.filterData}/>
+                <FilterButton buttonId='failed' filterData={this.props.filterData}/>
+                <FilterButton buttonId='all' filterData={this.props.filterData}/>
             </div>
         )
-    }
-
-    handleOnClick(event, filterKey) {
-        this.props.filterData(filterKey);
     }
 }
 
