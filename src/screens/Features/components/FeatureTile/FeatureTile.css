@@ -7,6 +7,7 @@
     overflow: hidden;
     box-shadow: -0.188em 0.188em 0.125em 0 #ccc;
     border: 0.063em solid #bdbdbd;
+    cursor: pointer;
 }
 
 .feature-tile-content {

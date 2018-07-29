@@ -1,9 +1,10 @@
 .feature-name {
     display: flex;
     justify-content: space-between;
-    background-color: #336600;
+    background-color: #6b2490;
     height: 5em;
     padding: 1.5em;
     color: white;
     overflow: hidden;
+    cursor: pointer;
 }
