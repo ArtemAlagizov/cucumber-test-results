@@ -7,12 +7,19 @@ class Scenario extends Component {
     render() {
         const step = this.props.step;
         const stepStatusClass = step.testsPassed ? 'passed' : 'failed';
+        const stepStatusIndicatorClass = `${stepStatusClass} rectangle`;
+        const divStyle = {
+            'maxWidth': TimeUtils.getWidthBasedOnTimeRate(step.timeRate),
+        };
 
         return (
             <div className="step">
                 <div className="step-content">
-                    <div>{step.name}</div>
-                    <div className={stepStatusClass}>Duration: {TimeUtils.convertNanosecondsToTime(step.duration)}</div>
+                    <div className="step-status-and-name">
+                        <div className={stepStatusIndicatorClass}/>
+                        <div>{step.name}</div>
+                    </div>
+                    <div className={stepStatusClass} style={divStyle}/>
                 </div>
             </div>
         )

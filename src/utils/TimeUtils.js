@@ -16,6 +16,10 @@ class TimeUtils extends Component {
             trim: true
         });
     }
+
+    static getWidthBasedOnTimeRate(timeRate) {
+        return `${timeRate * 30}vw`;
+    }
 }
 
 export default TimeUtils;

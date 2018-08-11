@@ -1,9 +1,21 @@
 .scenario-details {
     display: flex;
+    justify-content: space-between;
     min-height: 1.5em;
     max-height: 1.5em;
     overflow: hidden;
     cursor: pointer;
+    border-bottom: 0.0625rem solid #bdbdbd;
+}
+
+.rectangle {
+    margin-right: 0.4em;
+    width: 0.4em;
+}
+
+.scenario-status-and-name {
+    display: flex;
+    flex-direction: row;
 }
 
 .passed {

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import './Scenario.css';
 import Step from '../Step/Step';
-import ScenarioDetails from '../Scenario-details/ScenarioDetails';
+import ScenarioDetails from '../ScenarioDetails/ScenarioDetails';
 import Collapsible from 'react-collapsible';
 
 class Scenario extends Component {

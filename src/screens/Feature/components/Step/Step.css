@@ -9,7 +9,19 @@
 
 .step-content {
     display: flex;
+    justify-content: space-between;
     flex: 1;
+}
+
+.step-status-and-name {
+    display: flex;
+    flex-direction: row;
+}
+
+.rectangle {
+    margin-right: 0.4em;
+    max-width: 0.4em;
+    min-width: 0.4em;
 }
 
 .passed {

@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {juxt, clone, filter} from 'ramda';
+import {clone, filter, juxt, max} from 'ramda';
 
 const filterKeyMap = {
     passed: feature => feature.testsPassed === true,
@@ -30,7 +30,7 @@ class DataHandler extends Component {
         const getFeatureDuration = elements => elements.reduce((prev, element) => prev + sumDuration(element.steps), 0);
         const getFeatureResult = elements => elements.reduce((prev, element) => prev && getStatusPerScenario(element.steps), true);
         const setScenarioDuration = element => element.duration = sumDuration(element.steps);
-        const setDurationPerStep = element => element.steps.map(step => step.duration = step.result.duration);
+        const setDurationPerStep = element => element.steps.map(step => step.duration = step.result.duration || 0);
         const setResultPerStep = element => element.steps.map(step => step.testsPassed = getStatus(step));
         const setDurationPerScenario = feature => feature.elements.map(element => setScenarioDuration(element));
         const setDurationPerStepPerScenario = feature => feature.elements.map(element => setDurationPerStep(element));
@@ -47,6 +47,15 @@ class DataHandler extends Component {
         const setDurationPerStepPerScenarioPerFeature = features => features.map(feature => setDurationPerStepPerScenario(feature));
         const setResultPerScenarioPerFeature = features => features.map(feature => setResultPerScenario(feature));
         const setResultPerStepPerScenarioPerFeature = features => features.map(feature => setResultPerStepPerScenario(feature));
+        const getMaxScenarioTime = elements => max(...elements.map(element => element.duration));
+        const setMaxScenarioTimePerFeature = features => features.map(feature => feature.maxScenarioTime = getMaxScenarioTime(feature.elements));
+        const setScenarioTimeRate = (element, feature) => element.timeRate = element.duration / feature.maxScenarioTime;
+        const setTimeRatePerScenario = feature => feature.elements.map(element => setScenarioTimeRate(element, feature));
+        const setTimeRatePerScenarioPerFeature = features => features.map(feature => setTimeRatePerScenario(feature));
+        const setStepTimeRate = (steps, maxTime) => steps.map(step => step.timeRate = step.duration / maxTime);
+        const setTimeRatePerStep = (elements, maxTime) => elements.map(element => setStepTimeRate(element.steps, maxTime));
+        const setTimeRatePerStepPerScenario = feature => setTimeRatePerStep(feature.elements, feature.maxScenarioTime);
+        const setTimeRatePerStepPerScenarioPerFeature = features => features.map(feature => setTimeRatePerStepPerScenario(feature));
 
         const featuresClone = clone(features);
         const modifications = [
@@ -56,7 +65,10 @@ class DataHandler extends Component {
             setResultPerScenarioPerFeature,
             setScenariosNumberPerFeature,
             setDurationPerStepPerScenarioPerFeature,
-            setResultPerStepPerScenarioPerFeature
+            setResultPerStepPerScenarioPerFeature,
+            setMaxScenarioTimePerFeature,
+            setTimeRatePerScenarioPerFeature,
+            setTimeRatePerStepPerScenarioPerFeature
         ];
 
         juxt(modifications)(featuresClone);

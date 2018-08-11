@@ -4,6 +4,7 @@ import DataHandler from '../../utils/DataHandler';
 import ExampleData from '../../exampleData.json';
 import ScenarioList from './components/ScenarioList/ScenarioList';
 import FeatureHeader from './components/FeatureHeader/FeatureHeader';
+import InfoPanel from './components/InfoPanel/InfoPanel';
 
 class Feature extends Component {
     constructor(props) {
@@ -25,7 +26,8 @@ class Feature extends Component {
 
         return (
             <div className="feature">
-                <FeatureHeader headerData={this.state.featureName}/>
+                <FeatureHeader feature={feature}/>
+                <InfoPanel feature={feature}/>
                 <ScenarioList feature={feature}/>
             </div>
         );
@@ -35,10 +37,8 @@ class Feature extends Component {
         const features = DataHandler.addRelevantInformation(ExampleData);
         const featureId = this.props.match.params.id;
         const feature = features.find(feature => feature.id === featureId);
-        const featureName = feature.name;
 
         this.setState({
-            featureName: featureName,
             feature: feature
         });
     }
