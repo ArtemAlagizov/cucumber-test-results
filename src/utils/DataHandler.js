@@ -30,9 +30,13 @@ class DataHandler extends Component {
         const getFeatureDuration = elements => elements.reduce((prev, element) => prev + sumDuration(element.steps), 0);
         const getFeatureResult = elements => elements.reduce((prev, element) => prev && getStatusPerScenario(element.steps), true);
         const setScenarioDuration = element => element.duration = sumDuration(element.steps);
+        const setDurationPerStep = element => element.steps.map(step => step.duration = step.result.duration);
+        const setResultPerStep = element => element.steps.map(step => step.testsPassed = getStatus(step));
         const setDurationPerScenario = feature => feature.elements.map(element => setScenarioDuration(element));
+        const setDurationPerStepPerScenario = feature => feature.elements.map(element => setDurationPerStep(element));
         const setScenarioResult = element => element.testsPassed = getStatusPerScenario(element.steps);
         const setResultPerScenario = feature => feature.elements.map(element => setScenarioResult(element));
+        const setResultPerStepPerScenario = feature => feature.elements.map(element => setResultPerStep(element));
         const setFeatureDuration = feature => feature.duration = getFeatureDuration(feature.elements);
         const setDurationPerFeature = features => features.map(feature => setFeatureDuration(feature));
         const setFeatureScenariosNumber = feature => feature.scenariosNumber = feature.elements.length;
@@ -40,7 +44,9 @@ class DataHandler extends Component {
         const setFeatureResult = feature => feature.testsPassed = getFeatureResult(feature.elements);
         const setResultPerFeature = features => features.map(feature => setFeatureResult(feature));
         const setDurationPerScenarioPerFeature = features => features.map(feature => setDurationPerScenario(feature));
+        const setDurationPerStepPerScenarioPerFeature = features => features.map(feature => setDurationPerStepPerScenario(feature));
         const setResultPerScenarioPerFeature = features => features.map(feature => setResultPerScenario(feature));
+        const setResultPerStepPerScenarioPerFeature = features => features.map(feature => setResultPerStepPerScenario(feature));
 
         const featuresClone = clone(features);
         const modifications = [
@@ -48,7 +54,9 @@ class DataHandler extends Component {
             setResultPerFeature,
             setDurationPerScenarioPerFeature,
             setResultPerScenarioPerFeature,
-            setScenariosNumberPerFeature
+            setScenariosNumberPerFeature,
+            setDurationPerStepPerScenarioPerFeature,
+            setResultPerStepPerScenarioPerFeature
         ];
 
         juxt(modifications)(featuresClone);

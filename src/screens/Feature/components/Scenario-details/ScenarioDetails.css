@@ -1,0 +1,17 @@
+.scenario-details {
+    display: flex;
+    min-height: 1.5em;
+    max-height: 1.5em;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.passed {
+    flex: 1;
+    background: #00CC00;
+}
+
+.failed {
+    flex: 1;
+    background: #CC0000;
+}

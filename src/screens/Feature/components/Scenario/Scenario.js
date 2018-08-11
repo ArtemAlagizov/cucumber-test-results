@@ -1,31 +1,21 @@
 import React, {Component} from 'react';
 
 import './Scenario.css';
-import TimeUtils from '../../../../utils/TimeUtils';
+import Step from '../Step/Step';
+import ScenarioDetails from '../Scenario-details/ScenarioDetails';
+import Collapsible from 'react-collapsible';
 
 class Scenario extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleOnClick = this.handleOnClick.bind(this);
-    }
-
     render() {
         const scenario = this.props.scenario;
-        const scenarioStatusClass = scenario.testsPassed ? 'passed' : 'failed';
+        const steps = scenario.steps.map((step, index) => <Step key={index} step={step}/>);
+        const scenarioDetails = <ScenarioDetails scenario={scenario}/>;
 
         return (
-            <div className="scenario" onClick={this.handleOnClick}>
-                <div className="scenario-content">
-                    <div>{scenario.name}</div>
-                    <div className={scenarioStatusClass}>Duration: {TimeUtils.convertNanosecondsToTime(scenario.duration)}</div>
-                </div>
-            </div>
+            <Collapsible className="scenario" openedClassName="scenario" trigger={scenarioDetails}>
+                <div className="step-list">{steps}</div>
+            </Collapsible>
         )
-    }
-
-    handleOnClick() {
-        // todo: expand scenario steps
     }
 }
 

@@ -1,0 +1,23 @@
+.step {
+    display: flex;
+    min-height: 1.2em;
+    max-height: 1.2em;
+    margin: 0.1em;
+    overflow: hidden;
+    border: 0.0625rem solid #bdbdbd;
+}
+
+.step-content {
+    display: flex;
+    flex: 1;
+}
+
+.passed {
+    flex: 1;
+    background: #00CC00;
+}
+
+.failed {
+    flex: 1;
+    background: #CC0000;
+}
