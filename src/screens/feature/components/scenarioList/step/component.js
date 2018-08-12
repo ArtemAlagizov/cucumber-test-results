@@ -15,7 +15,7 @@ class Step extends Component {
                 <div className="step-content">
                     <div className="step-status-and-name">
                         <div className={stepStatusIndicatorClass}/>
-                        <div>{step.name}</div>
+                        <div className="step-name">{step.name}</div>
                     </div>
                     <div className={stepStatusClass} style={divStyle}/>
                 </div>

@@ -18,6 +18,10 @@
     flex-direction: row;
 }
 
+.scenario-name {
+    align-self: center;
+}
+
 .passed {
     flex: 1;
     background: #00CC00;

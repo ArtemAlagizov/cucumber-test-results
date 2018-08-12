@@ -14,7 +14,7 @@ class ScenarioDetails extends Component {
             <div className="scenario-details">
                 <div className="scenario-status-and-name">
                     <div className={scenarioStatusIndicatorClass}/>
-                    <div>{scenario.name}</div>
+                    <div className="scenario-name">{scenario.name}</div>
                 </div>
                 <div className={scenarioStatusClass} style={divStyle}/>
             </div>
