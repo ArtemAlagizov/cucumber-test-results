@@ -6,7 +6,7 @@ class InfoPanelLegend extends Component {
     render() {
         return (
             <div className="info-panel-legend">
-                <div className="feature-info-panel-title">All scenarios</div>
+                <div className="feature-info-panel-title">All scenarios / steps</div>
                 <div className="feature-legend-item-container">
                     <div className="legend-item">
                         <div className="square passed"/>

@@ -4,9 +4,19 @@
     border: 0.0625rem solid #bdbdbd;
 }
 
+.step-list-container {
+    display: flex;
+}
+
+.step-list-title {
+    padding: 0.1em;
+    margin-left: 0.2em;
+}
+
 .step-list {
     display: flex;
     flex-direction: column;
-    padding-left: 3em;
+    flex: 1;
+    padding-left: 2em;
     padding-bottom: 0.1em;
 }

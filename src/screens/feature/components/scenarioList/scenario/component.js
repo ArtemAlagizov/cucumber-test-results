@@ -13,7 +13,10 @@ class Scenario extends Component {
 
         return (
             <Collapsible className="scenario" openedClassName="scenario" trigger={scenarioDetails}>
-                <div className="step-list">{steps}</div>
+                <div className="step-list-container">
+                    <div className="step-list-title">Steps:</div>
+                    <div className="step-list">{steps}</div>
+                </div>
             </Collapsible>
         )
     }
