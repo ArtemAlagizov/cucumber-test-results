@@ -1,0 +1,14 @@
+.feature-list-container {
+    display: flex;
+    height: calc(100vh - 10.5em);
+    flex-direction: column;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-left: 0.8em;
+    font-size: 1.2em;
+}

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import './Features.css';
 
 import ExampleData from '../../exampleData.json';
-import FeatureList from '../../screens/Features/components/FeatureList/FeatureList';
-import FeaturesHeader from '../../screens/Features/components/FeaturesHeader/FeaturesHeader';
+import FeatureList from './components/FeatureList/component';
+import FeaturesHeader from './components/Header/component';
 import DataHandler from '../../utils/DataHandler';
-import FilterPanel from "./components/FilterPanel/FilterPanel";
+import FeaturesInfoPanel from "./components/InfoPanel/component";
 
 class Features extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class Features extends Component {
         return (
             <div className="features">
                 <FeaturesHeader headerData={this.state.headerData}/>
-                <FilterPanel filterData={this.filterData}/>
+                <FeaturesInfoPanel filterData={this.filterData}/>
                 <FeatureList features={this.state.filteredFeatures}/>
             </div>
         );

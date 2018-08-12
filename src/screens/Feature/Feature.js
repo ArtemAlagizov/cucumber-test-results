@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 
 import DataHandler from '../../utils/DataHandler';
 import ExampleData from '../../exampleData.json';
-import ScenarioList from './components/ScenarioList/ScenarioList';
-import FeatureHeader from './components/FeatureHeader/FeatureHeader';
-import InfoPanel from './components/InfoPanel/InfoPanel';
+import ScenarioList from './components/ScenarioList/element';
+import FeatureHeader from './components/Header/component';
+import FeatureInfoPanel from "./components/InfoPanel/component";
 
 class Feature extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Feature extends Component {
         return (
             <div className="feature">
                 <FeatureHeader feature={feature}/>
-                <InfoPanel feature={feature}/>
+                <FeatureInfoPanel feature={feature}/>
                 <ScenarioList feature={feature}/>
             </div>
         );

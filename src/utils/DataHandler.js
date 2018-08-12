@@ -24,19 +24,22 @@ class DataHandler extends Component {
         const getDuration = step => step.result ? step.result.duration ? step.result.duration : 0 : 0;
         const addDurationIfExists = (prev, step) => getDuration(step) + prev;
         const sumDuration = steps => steps.reduce((prev, step) => addDurationIfExists(prev, step), 0);
-        const getStatus = step => step.result ? step.result.status ? step.result.status === 'passed' : true : true;
-        const andStatusIfExists = (prev, step) => getStatus(step) && prev;
-        const getStatusPerScenario = steps => steps.reduce((prev, step) => andStatusIfExists(prev, step), true);
+        const getTestsPassed = step => step.result ? step.result.status ? step.result.status === 'passed' : true : true;
+        const getStatus = step => step.result ? step.result.status ? step.result.status : 'failed' : 'failed';
+        const andTestsPassedIfExists = (prev, step) => getTestsPassed(step) && prev;
+        const getTestsPassedPerScenario = steps => steps.reduce((prev, step) => andTestsPassedIfExists(prev, step), true);
         const getFeatureDuration = elements => elements.reduce((prev, element) => prev + sumDuration(element.steps), 0);
-        const getFeatureResult = elements => elements.reduce((prev, element) => prev && getStatusPerScenario(element.steps), true);
+        const getFeatureResult = elements => elements.reduce((prev, element) => prev && getTestsPassedPerScenario(element.steps), true);
         const setScenarioDuration = element => element.duration = sumDuration(element.steps);
         const setDurationPerStep = element => element.steps.map(step => step.duration = step.result.duration || 0);
-        const setResultPerStep = element => element.steps.map(step => step.testsPassed = getStatus(step));
+        const setResultPerStep = element => element.steps.map(step => step.testsPassed = getTestsPassed(step));
+        const setStatusPerStep = element => element.steps.map(step => step.status = getStatus(step));
         const setDurationPerScenario = feature => feature.elements.map(element => setScenarioDuration(element));
         const setDurationPerStepPerScenario = feature => feature.elements.map(element => setDurationPerStep(element));
-        const setScenarioResult = element => element.testsPassed = getStatusPerScenario(element.steps);
+        const setScenarioResult = element => element.testsPassed = getTestsPassedPerScenario(element.steps);
         const setResultPerScenario = feature => feature.elements.map(element => setScenarioResult(element));
         const setResultPerStepPerScenario = feature => feature.elements.map(element => setResultPerStep(element));
+        const setStatusPerStepPerScenario = feature => feature.elements.map(element => setStatusPerStep(element));
         const setFeatureDuration = feature => feature.duration = getFeatureDuration(feature.elements);
         const setDurationPerFeature = features => features.map(feature => setFeatureDuration(feature));
         const setFeatureScenariosNumber = feature => feature.scenariosNumber = feature.elements.length;
@@ -47,6 +50,7 @@ class DataHandler extends Component {
         const setDurationPerStepPerScenarioPerFeature = features => features.map(feature => setDurationPerStepPerScenario(feature));
         const setResultPerScenarioPerFeature = features => features.map(feature => setResultPerScenario(feature));
         const setResultPerStepPerScenarioPerFeature = features => features.map(feature => setResultPerStepPerScenario(feature));
+        const setStatusPerStepPerScenarioPerFeature = features => features.map(feature => setStatusPerStepPerScenario(feature));
         const getMaxScenarioTime = elements => max(...elements.map(element => element.duration));
         const setMaxScenarioTimePerFeature = features => features.map(feature => feature.maxScenarioTime = getMaxScenarioTime(feature.elements));
         const setScenarioTimeRate = (element, feature) => element.timeRate = element.duration / feature.maxScenarioTime;
@@ -66,6 +70,7 @@ class DataHandler extends Component {
             setScenariosNumberPerFeature,
             setDurationPerStepPerScenarioPerFeature,
             setResultPerStepPerScenarioPerFeature,
+            setStatusPerStepPerScenarioPerFeature,
             setMaxScenarioTimePerFeature,
             setTimeRatePerScenarioPerFeature,
             setTimeRatePerStepPerScenarioPerFeature
