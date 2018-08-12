@@ -14,7 +14,7 @@ class Features extends Component {
             headerData: {},
             filteredFeatures: [],
             originalFeatures: [],
-            dataFile: this.props.dataFile
+            data: this.props.data
         };
 
         this.loadData = this.loadData.bind(this);
@@ -36,7 +36,7 @@ class Features extends Component {
     }
 
     loadData() {
-        const features = DataHandler.addRelevantInformation(this.state.dataFile);
+        const features = DataHandler.addRelevantInformation(this.state.data);
         const headerData = DataHandler.getHeaderData(features);
 
         this.setState({
