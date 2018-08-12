@@ -3,7 +3,7 @@ import {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import App from '../App';
-import Feature from '../screens/Feature/Feature';
+import Feature from '../screens/feature/component';
 
 class Routes extends Component {
     static getRoutes() {
