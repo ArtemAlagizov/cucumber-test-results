@@ -1,5 +1,6 @@
 .info-panel-legend {
     display: flex;
+    align-items: flex-start;
     font-size: 1.3em;
     margin-top: 0.2em;
     align-self: end;
