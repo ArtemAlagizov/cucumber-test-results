@@ -30,7 +30,7 @@ class FeaturesHeader extends Component {
         const overallDuration = TimeUtils.convertNanosecondsToTime(headerData.overallDuration);
         const featuresNumber = headerData.featuresNumber;
         const numberOfPassedFeatures = headerData.numberOfPassedFeatures;
-        const percentageOfPassed = numberOfPassedFeatures / featuresNumber * 100;
+        const percentageOfPassed = featuresNumber !== 0 ? numberOfPassedFeatures / featuresNumber * 100 : 0;
         const circularIndicatorText = `${numberOfPassedFeatures}/${featuresNumber}`;
 
         return (
