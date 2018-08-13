@@ -53,6 +53,5 @@ describe('infoPanel rendering', () => {
             expect(rightSideComponent).toHaveLength(1);
             expect(rightSideComponent.text()).toEqual("right");
         });
-
     });
 });
