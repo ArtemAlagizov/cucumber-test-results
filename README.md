@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/ArtemAlagizov/cucumber-test-results.svg?branch=master)](https://travis-ci.org/ArtemAlagizov/cucumber-test-results)
-[![Coverage Status](https://coveralls.io/repos/github/ArtemAlagizov/cucumber-test-results/badge.svg?branch=master)](https://coveralls.io/github/ArtemAlagizov/cucumber-test-results?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ArtemAlagizov/cucumber-test-results/badge.svg?branch=master&service=github)](https://coveralls.io/github/ArtemAlagizov/cucumber-test-results?branch=master)
 
 * To install packages go with
   ```
