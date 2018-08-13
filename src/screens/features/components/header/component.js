@@ -7,26 +7,12 @@ import TimeUtils from '../../../../utils/timeUtils';
 import cucumberLogo from '../../../../rickle.png';
 
 class FeaturesHeader extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            headerData: {
-                overallDuration: 0,
-                featuresNumber: 0,
-                numberOfPassedFeatures: 0
-            }
-        };
-    }
-
-    componentWillMount() {
-        this.setState({
-            headerData: this.props.headerData || this.state.headerData
-        })
-    }
-
     render() {
-        const headerData = this.state.headerData;
+        const headerData = this.props.headerData || {
+            overallDuration: 0,
+            featuresNumber: 0,
+            numberOfPassedFeatures: 0
+        };
         const overallDuration = TimeUtils.convertNanosecondsToTime(headerData.overallDuration);
         const featuresNumber = headerData.featuresNumber;
         const numberOfPassedFeatures = headerData.numberOfPassedFeatures;
@@ -47,10 +33,10 @@ class FeaturesHeader extends Component {
                 <div className="features-header-statistics">
                     <div className="features-header-statistics-container">
                         <div className="test-status">
-                            <CircularProgressbar percentage={percentageOfPassed} text={circularIndicatorText}/>
+                            <CircularProgressbar className="circular-progressbar" percentage={percentageOfPassed} text={circularIndicatorText}/>
                         </div>
                         <div className="duration-container">
-                            <div>Overall time</div>
+                            <div className="duration-title">Overall time</div>
                             <div className="duration-time">{overallDuration}</div>
                         </div>
                     </div>
