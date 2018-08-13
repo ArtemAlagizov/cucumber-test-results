@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
-import Header from './component';
+import Component from './component';
 
 describe('header rendering', () => {
     describe('reactDOM', () => {
         it('should render without crashing', () => {
             const div = document.createElement('div');
 
-            ReactDOM.render(<Header/>, div);
+            ReactDOM.render(<Component/>, div);
             ReactDOM.unmountComponentAtNode(div);
         });
     });
@@ -17,7 +17,7 @@ describe('header rendering', () => {
         let wrapper;
 
         beforeEach(() => {
-            wrapper = shallow(<Header/>);
+            wrapper = shallow(<Component/>);
         });
 
         it('should render features header', () => {
@@ -88,7 +88,7 @@ describe('header rendering', () => {
         };
 
         beforeEach(() => {
-            wrapper = shallow(<Header {...props}/>);
+            wrapper = shallow(<Component {...props}/>);
         });
 
         it('should render circular progressbar', () => {
