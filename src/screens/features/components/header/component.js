@@ -7,8 +7,26 @@ import TimeUtils from '../../../../utils/timeUtils';
 import cucumberLogo from '../../../../rickle.png';
 
 class FeaturesHeader extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            headerData: {
+                overallDuration: 0,
+                featuresNumber: 0,
+                numberOfPassedFeatures: 0
+            }
+        };
+    }
+
+    componentWillMount() {
+        this.setState({
+            headerData: this.props.headerData || this.state.headerData
+        })
+    }
+
     render() {
-        const headerData = this.props.headerData;
+        const headerData = this.state.headerData;
         const overallDuration = TimeUtils.convertNanosecondsToTime(headerData.overallDuration);
         const featuresNumber = headerData.featuresNumber;
         const numberOfPassedFeatures = headerData.numberOfPassedFeatures;

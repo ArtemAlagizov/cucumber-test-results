@@ -17,7 +17,6 @@
     "ajv": "^6.5.2",
     "enzyme": "^3.3.0",
     "font-awesome": "^4.7.0",
-    "jest-cli": "^23.5.0",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "ramda": "^0.25.0",
