@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
 import Component from './component';
 
-describe('header rendering', () => {
+describe('features header rendering', () => {
     describe('reactDOM', () => {
         it('should render without crashing', () => {
             const div = document.createElement('div');
