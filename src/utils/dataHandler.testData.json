@@ -57,14 +57,14 @@
                 "name": "element 0",
                 "steps": [
                     {
-                        "name": "step 1",
+                        "name": "step 0",
                         "result": {
                             "status": "failed",
                             "duration": 1
                         }
                     },
                     {
-                        "name": "step 2",
+                        "name": "step 1",
                         "result": {
                             "status": "failed",
                             "duration": 0
@@ -101,11 +101,12 @@
                 "name": "element 0",
                 "steps": [
                     {
-                        "name": "step 1",
+                        "name": "step 0",
                         "result": {
-                            "status": "skipped",
-                            "duration": 14
                         }
+                    },
+                    {
+                        "name": "step 1"
                     }
                 ]
             }
@@ -119,14 +120,32 @@
                 "name": "element 0",
                 "steps": [
                     {
-                        "name": "step 1",
+                        "name": "step 0",
+                        "result": {
+                            "status": "skipped",
+                            "duration": 14
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "feature 4",
+        "id": "feature-4",
+        "elements": [
+            {
+                "name": "element 0",
+                "steps": [
+                    {
+                        "name": "step 0",
                         "result": {
                             "status": "passed",
                             "duration": 14
                         }
                     },
                     {
-                        "name": "step 2",
+                        "name": "step 1",
                         "result": {
                             "status": "passed",
                             "duration": 10
@@ -145,7 +164,7 @@
                         }
                     },
                     {
-                        "name": "step 2",
+                        "name": "step 1",
                         "result": {
                             "status": "passed",
                             "duration": 24

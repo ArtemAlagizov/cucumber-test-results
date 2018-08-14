@@ -34,7 +34,7 @@ class DataHandler {
     }
 
     static getTestsPassed() {
-        return step => step.result ? step.result.status ? step.result.status === 'passed' : true : true;
+        return step => step.result ? step.result.status ? step.result.status === 'passed' : false : false;
     }
 
     static getTestsPassedPerScenario() {
@@ -71,7 +71,7 @@ class DataHandler {
     }
 
     static setDurationPerStepPerScenarioPerFeature() {
-        const setDurationPerStep = element => element.steps.map(step => step.duration = step.result.duration || 0);
+        const setDurationPerStep = element => element.steps.map(step => step.duration = step.result ? step.result.duration || 0 : 0);
         const setDurationPerStepPerScenario = feature => feature.elements.map(element => setDurationPerStep(element));
 
         return features => features.map(feature => setDurationPerStepPerScenario(feature));

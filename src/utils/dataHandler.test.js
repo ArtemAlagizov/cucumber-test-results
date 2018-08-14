@@ -42,15 +42,15 @@ describe('data handler', () => {
             const allFeatures = Component.filterData(features, 'all');
 
             expect(passedFeatures.length).toEqual(1);
-            expect(failedFeatures.length).toEqual(3);
-            expect(allFeatures.length).toEqual(4);
+            expect(failedFeatures.length).toEqual(4);
+            expect(allFeatures.length).toEqual(5);
         });
 
         it('getHeaderData should get headerData', () => {
             const updatedFeatures = Component.addRelevantInformation(features);
             const headerData = Component.getHeaderData(updatedFeatures);
 
-            expect(headerData.featuresNumber).toEqual(4);
+            expect(headerData.featuresNumber).toEqual(5);
             expect(headerData.overallDuration).toEqual(151);
             expect(headerData.numberOfPassedFeatures).toEqual(1);
         });
@@ -60,16 +60,16 @@ describe('data handler', () => {
         it('setDurationPerFeature should update features with correct duration', () => {
             Component.setDurationPerFeature()(features);
 
-            expect(features.length).toEqual(4);
+            expect(features.length).toEqual(5);
             expect(features.shift().duration).toEqual(53);
             expect(features.shift().duration).toEqual(34);
-            expect(features.shift().duration).toEqual(14);
+            expect(features.shift().duration).toEqual(0);
         });
 
         it('setResultPerFeature should update features with correct result', () => {
             Component.setResultPerFeature()(features);
 
-            expect(features.length).toEqual(4);
+            expect(features.length).toEqual(5);
             expect(features.pop().testsPassed).toEqual(true);
             expect(features.pop().testsPassed).toEqual(false);
         });
@@ -78,12 +78,16 @@ describe('data handler', () => {
             const passedStep = {result: {status: 'passed'}};
             const failedStep = {result: {status: 'failed'}};
             const skippedStep = {result: {status: 'failed'}};
+            const stepNoStatus = {result: null};
+            const stepNoResult = {};
 
             const getTestsPassed = Component.getTestsPassed();
 
             expect(getTestsPassed(passedStep)).toEqual(true);
             expect(getTestsPassed(failedStep)).toEqual(false);
             expect(getTestsPassed(skippedStep)).toEqual(false);
+            expect(getTestsPassed(stepNoStatus)).toEqual(false);
+            expect(getTestsPassed(stepNoResult)).toEqual(false);
         });
 
         it('getTestsPassedPerScenario should get correct result', () => {
@@ -99,11 +103,15 @@ describe('data handler', () => {
         it('sumDuration should sum duration, innit?', () => {
             const stepsWithDuration26s = features.pop().elements.pop().steps;
             const stepsWithDuration3s = features.shift().elements.shift().steps;
+            const stepsNoDuration = [{result: null}];
+            const stepsNoResult = [{}];
 
             const sumDuration = Component.sumDuration();
 
             expect(sumDuration(stepsWithDuration26s)).toEqual(26);
             expect(sumDuration(stepsWithDuration3s)).toEqual(3);
+            expect(sumDuration(stepsNoDuration)).toEqual(0);
+            expect(sumDuration(stepsNoResult)).toEqual(0);
         });
 
         it('setDurationPerScenarioPerFeature should set correct duration', () => {
@@ -163,10 +171,15 @@ describe('data handler', () => {
             const passedStep = features.pop().elements.pop().steps.pop();
             const failedStep = features.shift().elements.shift().steps.pop();
             const skippedStep = features.pop().elements.pop().steps.pop();
+            const incompleteSteps = features.pop().elements.pop().steps;
+            const stepNoStatus = incompleteSteps.pop();
+            const stepNoResult = incompleteSteps.pop();
 
             expect(passedStep.status).toEqual('passed');
             expect(failedStep.status).toEqual('failed');
             expect(skippedStep.status).toEqual('skipped');
+            expect(stepNoStatus.status).toEqual('failed');
+            expect(stepNoResult.status).toEqual('failed');
         });
 
         it('setMaxScenarioTimePerFeature should set correct max scenario time', () => {
