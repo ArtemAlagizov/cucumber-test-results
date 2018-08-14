@@ -19,6 +19,10 @@ class FilterButton extends Component {
     }
 
     handleOnClick(event, filterKey) {
+        if (typeof this.props.filterData !== 'function') {
+            throw new Error('Thing passed to the button is not a function!');
+        }
+
         this.props.filterData(filterKey);
     }
 }
