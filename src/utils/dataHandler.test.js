@@ -1,4 +1,3 @@
-import React from 'react';
 import Component from './dataHandler';
 import testData from './dataHandler.testData';
 import {clone} from 'ramda';

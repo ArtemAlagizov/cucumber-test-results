@@ -6,10 +6,11 @@ import Validator from '../validation/validator';
 import ExampleData from '../validation/exampleData.json';
 import ValidationErrors from '../screens/validationErrors/component';
 import Features from '../screens/features/component';
+import Schema from '../validation/schema';
 
 class Routes extends Component {
     static getRoutes() {
-        const validationFunction = Validator.getValidationFunction();
+        const validationFunction = Validator.getValidationFunction(Schema);
         const isIncomingDataValid = validationFunction(ExampleData);
         const errorRoute = <ValidationErrors errors={validationFunction.errors}/>;
         const featuresRoute = isIncomingDataValid ?

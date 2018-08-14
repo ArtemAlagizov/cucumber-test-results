@@ -1,6 +1,6 @@
 {
-    "$id": "features-schema",
-    "title": "Features",
+    "$id": "test",
+    "title": "test",
     "type": "array",
     "items": {
         "type": "object",

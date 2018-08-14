@@ -1,11 +1,9 @@
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
 
-class TimeUtils {
-    constructor() {
-        momentDurationFormatSetup(moment);
-    }
+momentDurationFormatSetup(moment);
 
+class TimeUtils {
     static convertNanosecondsToTime(durationInNanoseconds) {
         this.checkIfInputIsANonNegativeNumber(durationInNanoseconds, "Duration");
 

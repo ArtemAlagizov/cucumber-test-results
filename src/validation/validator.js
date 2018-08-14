@@ -1,12 +1,18 @@
 import Ajv from 'ajv';
 
-import Schema from './schema';
+const ajv = new Ajv({allErrors: true});
 
 class Validator {
-    static getValidationFunction() {
-        const ajv = new Ajv({allErrors: true});
+    static getValidationFunction(schema) {
+        let validationFunction;
 
-        return ajv.compile(Schema);
+        try {
+            validationFunction = ajv.compile(schema);
+        } catch (e) {
+            throw new Error(`Ajv failed to compile schema with the following error: ${e.message}`);
+        }
+
+        return validationFunction;
     }
 }
 
