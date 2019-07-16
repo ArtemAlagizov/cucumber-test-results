@@ -1,29 +1,55 @@
 .step {
     display: flex;
-    min-height: 1.2em;
-    max-height: 1.2em;
-    margin: 0.1em;
+    min-height: 22px;
+    max-height: 22px;
+    margin: 3px;
     overflow: hidden;
-    border: 0.0625rem solid #bdbdbd;
+    border: 1px solid #0E2844;
+}
+
+.step-collapsible {
+    display: flex;
+    flex-direction: column;
+}
+
+.step-collapsible-top {
+    cursor: pointer;
+}
+
+.error-message {
+    max-height: 10em;
+    background: #EAB7BC;
+    overflow: auto;
+    font-size: 0.8em;
+    padding: 0.4em;
+    margin: 4px 0 4px 0;
 }
 
 .step-content {
     display: flex;
     justify-content: space-between;
     flex: 1;
+    width: 100%;
 }
 
 .step-content:hover {
-    background: #DFE0E9;
+    background: white;
 }
 
 .step-status-and-name {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .step-name {
     align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .rectangle {
@@ -33,11 +59,11 @@
 }
 
 .passed {
-    background: #00CC00;
+    background: #68CA77;
 }
 
 .failed {
-    background: #CC0000;
+    background: #C73F4B;
 }
 
 .skipped {

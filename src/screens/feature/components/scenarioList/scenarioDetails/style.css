@@ -1,11 +1,13 @@
 .scenario-details {
     display: flex;
     justify-content: space-between;
-    min-height: 1.5em;
-    max-height: 1.5em;
+    min-height: 24px;
+    max-height: 24px;
     overflow: hidden;
     cursor: pointer;
-    border-bottom: 0.0625rem solid #bdbdbd;
+    border-bottom: 1px solid #0E2844;
+    background: #C9D3DB;
+    color: black;
 }
 
 .rectangle {
@@ -24,10 +26,10 @@
 
 .passed {
     flex: 1;
-    background: #00CC00;
+    background: #68CA77;
 }
 
 .failed {
     flex: 1;
-    background: #CC0000;
+    background: #C73F4B;
 }

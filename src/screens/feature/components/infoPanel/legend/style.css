@@ -29,13 +29,13 @@
 }
 
 .passed {
-    background: #00CC00;
+    background: #68CA77;
 }
 
 .failed {
-    background: #CC0000;
+    background: #C73F4B;
 }
 
 .skipped {
-    background: orange;
+    background: #F1D302;
 }

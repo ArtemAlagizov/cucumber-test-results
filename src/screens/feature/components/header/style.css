@@ -1,7 +1,7 @@
 .feature-header {
     display: flex;
     justify-content: space-between;
-    background-color: #020450;
+    background-color: #0E2844;
     height: 5em;
     padding: 1.5em;
     color: white;
@@ -27,9 +27,9 @@
 }
 
 .tests-passed {
-    color: #00CC00;
+    color: #68CA77;
 }
 
 .tests-failed {
-    color: #CC0000;
+    color: #C73F4B;
 }

@@ -3,6 +3,7 @@
     font-size: 1.3em;
     margin-top: 0.2em;
     align-self: end;
+    color: white;
 }
 
 .legend-item {
@@ -28,9 +29,9 @@
 }
 
 .passed {
-    background: #00CC00;
+    background: #68CA77;
 }
 
 .failed {
-    background: #CC0000;
+    background: #C73F4B;
 }

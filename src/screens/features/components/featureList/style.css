@@ -1,7 +1,9 @@
 .feature-list-container {
     display: flex;
-    height: calc(100vh - 10.5em);
+    height: calc(100vh - 20.9em);
     flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 0.3em;
 }
 
 .feature-list {

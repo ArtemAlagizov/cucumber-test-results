@@ -13,30 +13,42 @@ class FeatureTile extends Component {
 
     render() {
         const feature = this.props.feature || {
-            name: '',
-            scenariosNumber: 0,
-            duration: 0
-        };
+                name: '',
+                scenariosNumber: 0,
+                duration: 0
+            };
         const featureName = feature.name || '';
         const featureScenariosNumber = feature.scenariosNumber || 0;
         const featureDuration = feature.duration || 0;
         const featureStatusClass = feature ? feature.testsPassed ? 'passed' : 'failed' : '';
+        const featureTileClass = `feature-tile-content ${featureStatusClass}`;
+        const firstFailedScenario = feature ? feature.testsPassed ? null : feature.firstFailedScenario : null;
+        const firstFailedStep = feature ? feature.testsPassed ? null : feature.firstFailedStep : null;
+        const firstFailedScenarioName = firstFailedScenario ? firstFailedScenario.name : 'Not defined';
+        const firstFailedStepName = firstFailedScenario ? firstFailedStep.name : 'Not defined';
+        const featureTileMiddlePartDiv =
+            <div className="feature-tile-middle">
+                <div className="failed-scenario-name">Failed at:
+                    <span className="feature-tile-scenario-name">{firstFailedScenarioName}</span>
+                </div>
+                <div className="failed-step-name">Step: {firstFailedStepName}</div>
+            </div>;
+        const featureTileMiddlePart = feature ? feature.testsPassed ? '' :
+            featureTileMiddlePartDiv : '';
 
         return (
-            <div className="feature-tile" onClick={this.handleOnClick}>
-                <div className="feature-tile-content">
+            <div className="feature-tile"
+                 onClick={this.handleOnClick}>
+                <div className={featureTileClass}>
                     <div className="feature-tile-upper">
                         <div className="dashboard-name">{featureName}</div>
                     </div>
+                    {featureTileMiddlePart}
                     <div className="feature-tile-downer">
-                        <div className="number-of-scenarios">
-                            <div className="label">Number of scenarios:</div>
-                            <div>{featureScenariosNumber}</div>
-                        </div>
                         <div className="duration">
-                            <div className="label">Duration:</div>
-                            <div>
-                                {TimeUtils.convertNanosecondsToTime(featureDuration)}
+                            <div className="feature-tile-statistics">
+                                <div>{featureScenariosNumber} scenarios in</div>
+                                <div className="feature-tile-statistics-duration">{TimeUtils.convertNanosecondsToTime(featureDuration)}</div>
                             </div>
                         </div>
                     </div>

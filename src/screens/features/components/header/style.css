@@ -1,7 +1,7 @@
 .features-header {
     display: flex;
     justify-content: space-between;
-    background-color: #020450;
+    background-color: #0E2844;
     height: 5em;
     padding: 1.5em;
     color: white;
@@ -28,18 +28,35 @@
     margin-left: -3em;
 }
 
+.features-header-extra-info-asml-logo {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.asml-logo {
+    height: 132%;
+    width: 3.5em;
+    top: 0.5em;
+}
+
+.features-header-extra-info {
+    font-size: 1.3em;
+}
+
+.features-header-extra-info-testbench {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-size: 1.3em;
+}
+
 .features-header-statistics {
     display: flex;
 }
 
 .features-header-statistics-container {
     display: flex;
-}
-
-.test-status {
-    display: flex;
-    flex-direction: column;
-    margin-right: 1em;
 }
 
 .duration-container {
@@ -55,21 +72,16 @@
     overflow: hidden;
 }
 
-.CircularProgressbar {
-    width: 100%;
-    max-width: 55%;
-    align-self: flex-end;
+.features-header-file-info-item {
+    display: flex;
 }
 
-.CircularProgressbar .CircularProgressbar-trail {
-    stroke: #CC0000;
+.features-header-file-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.CircularProgressbar .CircularProgressbar-path {
-    stroke: #00CC00;
-    stroke-linecap: square;
-}
-
-.CircularProgressbar .CircularProgressbar-text {
-    fill: #00CC00;
+.features-header-file-info-item-label {
+    width: 3em;
 }

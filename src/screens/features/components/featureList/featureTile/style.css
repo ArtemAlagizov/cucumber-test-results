@@ -1,50 +1,64 @@
 .feature-tile {
     display: flex;
-    flex: 0 0 19em;
-    width: 10em;
-    height: 7em;
-    margin: 0.4em;
+    flex: 0 0 365px;
+    width: 172px;
+    height: 130px;
+    margin: 8px;
     overflow: hidden;
-    box-shadow: -0.1875rem 0.1875rem 0.125rem 0 #ccc;
-    border: 0.0625rem solid #bdbdbd;
+    box-shadow: -3px 3px 2px 0 #0E2844;
+    border: 1px solid #0E2844;
     cursor: pointer;
 }
 
 .feature-tile-content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     flex: 30;
+    width: 100%;
+    padding: 0.3em;
+    overflow: hidden;
 }
 
 .passed {
-    flex: 1;
-    background: #00CC00;
+    background: #68CA77;
 }
 
 .failed {
-    flex: 1;
-    background: #CC0000;
+    background: #C73F4B;
+    color: white;
 }
 
 .feature-tile-upper {
     display: flex;
-    flex: 3;
     justify-content: flex-start;
+    padding: 0.3em 0 0 0.3em;
+}
+
+.feature-tile-middle {
+    padding: 0 0 0 0.3em;
+}
+
+.failed-step-name, .failed-scenario-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .feature-tile-downer {
     display: flex;
     flex-direction: column;
-    flex: 2;
-    margin: 0.5em 0.5em 1em;
+    padding: 0 0.3em 0 0.3em;
 }
 
 .dashboard-name {
-    flex: 1;
-    padding: 1em;
     word-break: break-all;
     font-weight: bold;
-    margin-top: -0.438em;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin-top: -0.2em;
 }
 
 .number-of-scenarios {
@@ -53,10 +67,18 @@
     padding: 0.5em;
 }
 
+.feature-tile-scenario-name, .feature-tile-statistics-duration {
+    font-weight: bold;
+    margin-left: 0.2em;
+}
+
+.feature-tile-statistics {
+    display: flex;
+}
+
 .duration {
     display: flex;
-    flex: 1;
-    padding: 0.5em;
+    flex-direction: row;
 }
 
 .label {

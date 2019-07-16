@@ -12,7 +12,7 @@
           {
             "result": {
               "duration": 646651300,
-              "status": "passed"
+              "status": "failed"
             },
             "line": 6,
             "name": "I am at the Login page",

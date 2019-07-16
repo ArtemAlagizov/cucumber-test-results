@@ -2,11 +2,13 @@
   "name": "cucumber-test-results",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
   },
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -17,12 +19,15 @@
   },
   "devDependencies": {
     "ajv": "^6.5.2",
+    "axios": "^0.18.0",
     "coveralls": "^3.0.2",
+    "downloadjs": "^1.4.7",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.2.0",
     "font-awesome": "^4.7.0",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
+    "moment-timezone": "^0.5.21",
     "ramda": "^0.25.0",
     "react-addons-test-utils": "^15.6.2",
     "react-circular-progressbar": "^1.0.0",

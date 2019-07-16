@@ -1,17 +1,17 @@
 .filter-button {
-    width: 1.6em;
-    height: 1.6em;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
 }
 
 .show-passed {
-    background: #00CC00;
+    background: #68CA77;
 }
 
 .show-failed {
-    background: #CC0000;
+    background: #C73F4B;
 }
 
 .show-all {
-    background: grey;
+    background: #CCDBDC;
 }

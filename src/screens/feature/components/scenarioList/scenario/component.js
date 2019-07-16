@@ -8,7 +8,8 @@ import Collapsible from 'react-collapsible';
 class Scenario extends Component {
     render() {
         const scenario = this.props.scenario;
-        const steps = scenario.steps.map((step, index) => <Step key={index} step={step}/>);
+        const scenarioAfter = scenario.after ? scenario.after : null;
+        const steps = scenario.steps.map((step, index) => <Step key={index} step={step} scenarioAfter={scenarioAfter}/>);
         const scenarioDetails = <ScenarioDetails scenario={scenario}/>;
 
         return (

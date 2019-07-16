@@ -70,6 +70,20 @@ class DataHandler {
         return features => features.map(feature => setFeatureScenariosNumber(feature));
     }
 
+    static setFailedScenarioPerFeature() {
+        const setFeatureFailedScenario = feature => {
+            const firstFailedScenario = feature.elements.find(scenario => !scenario.testsPassed);
+            const firstFailedStep = firstFailedScenario ? firstFailedScenario.steps.find(step => !step.testsPassed) : null;
+
+            if (firstFailedScenario && firstFailedStep) {
+                feature.firstFailedScenario = firstFailedScenario;
+                feature.firstFailedStep = firstFailedStep;
+            }
+        };
+
+        return features => features.map(feature => setFeatureFailedScenario(feature));
+    }
+
     static setDurationPerStepPerScenarioPerFeature() {
         const setDurationPerStep = element => element.steps.map(step => step.duration = step.result ? step.result.duration || 0 : 0);
         const setDurationPerStepPerScenario = feature => feature.elements.map(element => setDurationPerStep(element));
@@ -126,7 +140,8 @@ class DataHandler {
             this.setStatusPerStepPerScenarioPerFeature(),
             this.setMaxScenarioTimePerFeature(),
             this.setTimeRatePerScenarioPerFeature(),
-            this.setTimeRatePerStepPerScenarioPerFeature()
+            this.setTimeRatePerStepPerScenarioPerFeature(),
+            this.setFailedScenarioPerFeature()
         ];
 
         juxt(modifications)(featuresClone);
