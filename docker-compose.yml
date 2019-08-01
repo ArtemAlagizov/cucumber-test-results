@@ -2,7 +2,7 @@ version: '3.2'
 services:
   cucumber-results-react:
     build:
-      context: ./komkommer-react
+      context: ../cucumber-test-results-react
       dockerfile: Dockerfile
     volumes:
       - '/usr/src/app/node_modules'
@@ -26,7 +26,7 @@ services:
     tty: true
   cucumber-results-spring-boot:
     build:
-      context: ./komkommer-spring-boot
+      context: ../cucumber-test-results-spring-boot
       dockerfile: Dockerfile
     restart: always
     command: ["java",  "-jar", "/app.jar"]
