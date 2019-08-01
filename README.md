@@ -22,4 +22,4 @@ and
   * **cucumber-test-results-react** is connected with **cucumber-test-results-spring-boot** through websockets/stomp
   * **cucumber-test-results-spring-boot** has **/cucumber-report** endpoint to which **POST** request can be made with results of cucumber testing (**post-cucumber-results.ps1** example)
   * once **cucumber-test-results-spring-boot** receives the report, **cucumber-test-results-react** is informed about it through websocket connection
-  * once **cucumber-test-results-react** gets this info it sends GET request to **/cucumber-report** to get the report and render it
+  * once **cucumber-test-results-react** gets this info it sends **GET** request to **/cucumber-report** to get the report and render it
