@@ -23,7 +23,8 @@ services:
       - REACT_APP_LIS_DATA_CHANNEL_PORT=3013
       - REACT_APP_SCREENSHOT_SERVICE_PORT=3012
       - REACT_APP_REACT_PORT=3000
-      - REACT_APP_REAACT_CA_PORT=3018
+      - REACT_APP_REACT_CA_PORT=3018
+      - REACT_APP_CUSTOMER_PROJECTS_PORT=3015
     tty: true
   cucumber-results-spring-boot:
     build:
