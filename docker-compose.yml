@@ -4,13 +4,13 @@ services:
     build:
       context: ../cucumber-test-results-react
       dockerfile: Dockerfile
-    volumes:
-      - '/usr/src/app/node_modules'
-    command: npm start -p 3000 -b '0.0.0.0'
+    command: bash -c "/usr/share/nginx/html/env.sh && envsubst '$${BACKEND_URL}' </etc/nginx/conf.d/nginx.conf> /etc/nginx/conf.d/nginx.conf && nginx -g \"daemon off;\""
     ports:
-      - "3035:3000"
+      - "3035:80"
+    depends_on:
+      - cucumber-results-spring-boot
     environment:
-      - NODE_ENV=development
+      - BACKEND_URL=localhost:3036
       - REACT_APP_TESTBENCH_NUMBER=55
       - REACT_APP_BACKEND_IP=localhost
       - REACT_APP_TB_TO_BE_OBSERVED_IP=localhost
@@ -26,7 +26,6 @@ services:
       - REACT_APP_REACT_CA_PORT=3018
       - REACT_APP_CUSTOMER_PROJECTS_PORT=3015
       - REACT_APP_DATA_ASSOCIATION_PORT=3014
-    tty: true
   cucumber-results-spring-boot:
     build:
       context: ../cucumber-test-results-spring-boot

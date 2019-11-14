@@ -2,13 +2,11 @@ version: '3.2'
 services:
   cucumber-results-react:
     image: apps-vcp-nexus.asml.com:18443/cucumber-results-react
-    volumes:
-      - '/usr/src/app/node_modules'
-    command: npm start -p 3000 -b '0.0.0.0'
+    command: bash -c "/usr/share/nginx/html/env.sh && envsubst '$${BACKEND_URL}' </etc/nginx/conf.d/nginx.conf> /etc/nginx/conf.d/nginx.conf && nginx -g \"daemon off;\""
     ports:
-      - "3035:3000"
+      - "3035:80"
     environment:
-      - NODE_ENV=development
+      - BACKEND_URL=http://${TB_IP}:3036
       - REACT_APP_TESTBENCH_NUMBER=${TB_NUMBER}
       - REACT_APP_BACKEND_IP=${TB_IP}
       - REACT_APP_TB_TO_BE_OBSERVED_IP=${TB_TO_BE_OBSERVED_IP}
