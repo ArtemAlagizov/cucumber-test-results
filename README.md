@@ -26,3 +26,4 @@ and
   * once **cucumber-test-results-spring-boot** receives the report, **cucumber-test-results-react** is informed about it through websocket connection
   * once **cucumber-test-results-react** gets this info it sends **GET** request to **/cucumber-report** to get the report and render it
   * there is an endpoint **/health-monitoring-services** to which a list of services **health** can be sent to it
+  ** **post-health-monitoring-details.sh** script is an example
