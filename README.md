@@ -20,6 +20,10 @@ and
       ```
       docker-compose up
       ```
+* to deploy to a docker swarm cluster:
+  ```
+  TB_IP=172.19.234.73 TB_NUMBER=55 BACKEND_URL=http://172.19.234.73:3035 docker stack -c docker-compose.depl.yml
+  ```
 * design:
   * **cucumber-test-results-react** is connected with **cucumber-test-results-spring-boot** through websockets/stomp
   * **cucumber-test-results-spring-boot** has **/cucumber-report** endpoint to which **POST** request can be made with results of cucumber testing (**post-cucumber-results.ps1** example)
