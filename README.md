@@ -22,7 +22,7 @@ and
       ```
 * to deploy to a docker swarm cluster:
   ```
-  TB_IP=172.19.234.73 TB_NUMBER=55 BACKEND_URL=http://172.19.234.73:3035 docker stack -c docker-compose.depl.yml
+  TB_IP=172.19.234.73 TB_NUMBER=55 BACKEND_URL=http://172.19.234.73:3035 docker stack deploy -c docker-compose.depl.yml cucumberStackk
   ```
 * design:
   * **cucumber-test-results-react** is connected with **cucumber-test-results-spring-boot** through websockets/stomp
