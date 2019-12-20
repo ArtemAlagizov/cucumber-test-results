@@ -1,7 +1,6 @@
 # cucumber-test-results
----
-  [aws-deployed version](http://3.13.45.208:3035/)
----
+
+[aws-deployed version](http://3.13.45.208:3035/)
 
 connector for 
 
