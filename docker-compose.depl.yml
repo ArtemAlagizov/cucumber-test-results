@@ -6,7 +6,7 @@ services:
     ports:
       - "3035:80"
     environment:
-      - BACKEND_URL=http://${TB_IP}:3036
+      - BACKEND_URL=${TB_IP}:3036
       - TESTBENCH_NUMBER=${TB_NUMBER}
   cucumber-results-spring-boot:
     image: alagiz/cucumber-spring-boot
