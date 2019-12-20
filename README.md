@@ -36,7 +36,7 @@ and
     * **post-health-monitoring-details.sh** script is an example
 
 ---
-  body request examples
+  requests body example
 ---
 **POST** to http://3.13.45.208:3036/health-monitoring-services
 ```
