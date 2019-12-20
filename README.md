@@ -34,3 +34,87 @@ and
   * once **cucumber-test-results-react** gets this info it sends **GET** request to **/cucumber-report** to get the report and render it
   * there is an endpoint **/health-monitoring-services** to which a list of services **health** can be sent to it
     * **post-health-monitoring-details.sh** script is an example
+
+---
+  body request examples
+---
+**POST** to http://3.13.45.208:3036/health-monitoring-services
+```
+{
+   "backendIp":"3.13.45.208",
+   "healthMonitoringServiceDetails":[
+      {
+         "title":"sky-service-backend",
+         "id":"sky-service-backend",
+         "healthy":false,
+         "healthCheckUrl":"http://{BACKEND_IP}:3001",
+         "swaggerUrl":"http://google.com"
+      }
+   ]
+}
+```
+**POST** to http://3.13.45.208:3036/deployment-data
+```
+{
+	"releaseVersion": "2.43.0",
+	"dateTimeOfDeployment": "30-12-2019T01:31:25"
+}
+```
+**POST** to http://3.13.45.208:3036/cucumber-report?dateTimeOfReportCreation=31-12-2019T07:55:57
+```
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "I am llogged in and at the landing page",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 7733117900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am at the Login page",
+            "match": {
+              "location": "Authentication.i_am_at_the_Login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1845051400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I enter username of authorised user",
+            "match": {
+              "location": "Authentication.i_enter_username_of_authorised_user()"
+            },
+            "keyword": "When "
+          }
+        ]
+      }
+    ],
+    "name": "SMIC use case E2E testing (Product: Z41A)",
+    "description": "",
+    "id": "smic-use-case-e2e-testing-(product:-z41a)",
+    "keyword": "Feature",
+    "uri": "src/test/features/SMIC_SingleWaferComputations.feature",
+    "tags": [
+      {
+        "name": "@SeleniumFeature",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
+```
