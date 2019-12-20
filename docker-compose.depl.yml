@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   cucumber-results-react:
-    image: apps-vcp-nexus.asml.com:18443/cucumber-results-react
+    image: alagiz/cucumber-react
     command: bash -c "/usr/share/nginx/html/env.sh && envsubst '$${BACKEND_URL} $${TESTBENCH_NUMBER}' </etc/nginx/conf.d/nginx.conf> /etc/nginx/conf.d/nginx.conf && nginx -g \"daemon off;\""
     ports:
       - "3035:80"
@@ -9,7 +9,7 @@ services:
       - BACKEND_URL=http://${TB_IP}:3036
       - TESTBENCH_NUMBER=${TB_NUMBER}
   cucumber-results-spring-boot:
-    image: apps-vcp-nexus.asml.com:18443/cucumber-results-spring-boot
+    image: alagiz/cucumber-spring-boot
     restart: always
     command: ["java",  "-jar", "/app.jar"]
     ports:
